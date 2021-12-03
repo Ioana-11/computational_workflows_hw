@@ -83,6 +83,16 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+
+touch Dockerfile
+nano Dockerfile
+# copy pasted FROM ... RUN... 
+
+git add Dockerfile
+
+git commit -m "add Dockerfile"
+git push
+
 ```
 
 ## Build and push Docker image
@@ -93,6 +103,17 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+
+docker build .
+# it was successful, copied the letter and numbers code
+docker login 
+# successful 
+docker tag ae76112b254a ioana1109/computational-workflows-hw
+docker push ioana1109/computational-workflows-hw
+
+
+
+
 ```
 
 ## Run a container, and share in files from the host.
@@ -103,6 +124,11 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+
+docker run -it -v $(pwd):/root/shared -w /root/shared ioana1109/computational-workflows-hw
+# pwd – present working directory
+
+
 ```
 
 ## Setup a simple Python test suite
@@ -114,6 +140,18 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+
+“””” add the python files “”””
+cd..
+cd Desktop 
+git clone https://github.com/jhale/computational-workflows-homework.git
+cp computational-workflows-homework/*.py ../computational_workflows_homework
+git add py files 
+git commit -m 
+git push 
+
+
+
 ```
 
 2. Start a Docker container using your image and share your repository into a
@@ -121,6 +159,19 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+
+docker run -it -v $(pwd):/root/shared -w /root/shared ioana1109/computational-workflows-hw python3 -m pytest
+
+
+“””test fixing”””
+changed the wallet.py :
+   def spend_cash(self, amount):
+        if  self.balance < amount:
+                raise InsufficientAmount("Not enough cash")
+        self.balance -=  amount
+
+
+
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
