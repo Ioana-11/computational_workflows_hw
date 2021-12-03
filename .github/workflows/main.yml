@@ -13,4 +13,5 @@ jobs:
 
       - name: Run tests
         run: |  # allows to run more commands one after the other
-          python3 – m pytest
+          python3 -m pytest
+
