@@ -1,0 +1,16 @@
+name: Run tests
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu 21.04
+    container: ioana1109/computational-workflows-hw
+
+    steps:
+    # check code from git repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |  # allows to run more commands one after the other
+          python3 – m pytest
